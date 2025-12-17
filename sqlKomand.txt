@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS sekolah_crud CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE sekolah_crud;
+
+CREATE TABLE IF NOT EXISTS siswa (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nis VARCHAR(30) NOT NULL,
+  nama VARCHAR(100) NOT NULL,
+  kelas VARCHAR(20) NOT NULL,
+  alamat TEXT,
+  foto VARCHAR(255) DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- optional: biar NIS unik
+CREATE UNIQUE INDEX uniq_nis ON siswa(nis);
